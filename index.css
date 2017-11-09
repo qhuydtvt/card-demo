@@ -1,0 +1,137 @@
+html * {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+  background-color: #7E57C2;
+}
+
+.container-center {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  flex: 2;
+}
+
+.card-text {
+  font-size: 2em;
+}
+
+.card-sm-text {
+  font-size: 1em;
+}
+
+.card-footer {
+  border-top: 1px solid rgba(68, 30, 30, 0.2);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.back-button-container {
+  display: none;
+  flex: 1;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button-yes {
+  color: #00BCD4;
+}
+
+.button-no {
+  color: #F44336;
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  margin-top: 20px;
+  display: flex;
+  flex-flow: column;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  background-color: #fff;
+  border-radius: 2px;
+  position: relative;
+}
+
+@keyframes scaleup {
+  from  { bottom: 0px; }
+  to { height: 400px; }
+}
+
+@keyframes movetoheader {
+  from {
+    bottom: 0px;
+  }
+
+  to {
+    bottom: 100px;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+.card-origin {
+  position: relative;
+}
+
+.card-origin.active {
+  animation-name: movetoheader;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.card.active {
+  animation-name: scaleup;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+.card-button-front.active {
+  display: none;
+}
+
+.back-button-container.active {
+  display: flex;
+}
+
+.back-button.active {
+  animation-name: fadein;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
