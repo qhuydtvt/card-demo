@@ -15,8 +15,8 @@ body {
 
 .card-body {
   display: flex;
+  flex-flow: column;
   align-items: center;
-  justify-content: center;
   height: auto;
   flex: 1;
 }
@@ -64,49 +64,79 @@ body {
   border-radius: 2px;
 }
 
+.card-image {
+  object-fit: contain;
+  width: auto;
+  height: 100px;
+  margin: 5px;
+}
+
+.card-meaning {
+  opacity: 0;
+  padding: 18px;
+  display: none;
+  align-self: stretch;
+  flex-flow: column;
+  flex: 1;
+}
+
+.card-translation {
+  font-weight: bold;
+}
+
+.card-example {
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+
 @keyframes scaleup {
-  to { height: 400px; }
+  to { height: 360px; }
 }
 
 @keyframes moveToHeaderX {
   from { left: 0px; }
-  to { left: -80px; }
+  to { left: -100px; }
 }
 
 @keyframes moveToHeaderY {
-  from { top: 0px; }
-  to { top: -50px; }
+  from { top: 48px; }
+  to { top: 10px; }
 }
 
 @keyframes shrink {
   from { font-size: 2em; }
-  to { font-size: 1.2em; }
+  to { font-size: 1.5em; }
 }
 
-@keyframes stickToHeader {
-  from { top: -50px; }
-  to { top: -140px; }
-}
 
 @keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .card-origin {
   position: relative;
   font-size: 2em;
+  top: 48px;
 }
 
 .card-origin.active {
+  font-weight: bold;
   animation: shrink 0.2s ease-out 0s normal 1 forwards running,
              moveToHeaderX 0.2s ease-out 0s normal 1 forwards running,
-             moveToHeaderY 0.2s ease-in 0s normal 1 forwards running,
-             stickToHeader 0.3s ease-out 0.2s normal 1 forwards running;
+             moveToHeaderY 0.2s ease-in 0s normal 1 forwards running;
 }
 
 .card.active {
   animation: scaleup 0.3s ease-out 0.2s normal 1 forwards running;
+}
+
+.card-meaning.active {
+  display: flex;
 }
 
 .card-button-front.active {
@@ -118,12 +148,9 @@ body {
 }
 
 .back-button.active {
-  animation-name: fadein;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
-  animation-delay: 0s;
-  animation-direction: normal;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+  animation: fadein 0.5s ease-out 0s normal 1 forwards running;
+}
+
+.card-meaning.active {
+  animation: fadein 0.5s ease-out 0.2s normal 1 forwards running;
 }

@@ -4,6 +4,7 @@ $(document).ready(function() {
     $(".card-origin").toggleClass('active');
     $(".card-button-front").toggleClass('active');
     $(".back-button-container").toggleClass('active');
+    $(".card-meaning").toggleClass('active');
     $(".back-button").toggleClass('active');
   });
 });
