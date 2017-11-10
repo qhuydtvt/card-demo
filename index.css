@@ -9,6 +9,7 @@ body {
 .container-center {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
@@ -17,7 +18,7 @@ body {
   align-items: center;
   justify-content: center;
   height: auto;
-  flex: 2;
+  flex: 1;
 }
 
 .card-text {
@@ -61,17 +62,30 @@ body {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   background-color: #fff;
   border-radius: 2px;
-  position: relative;
 }
 
 @keyframes scaleup {
-  from  { bottom: 0px; }
   to { height: 400px; }
 }
 
-@keyframes movetoheader {
-  from { bottom: 0px; }
-  to { bottom: 100px; }
+@keyframes moveToHeaderX {
+  from { left: 0px; }
+  to { left: -80px; }
+}
+
+@keyframes moveToHeaderY {
+  from { top: 0px; }
+  to { top: -50px; }
+}
+
+@keyframes shrink {
+  from { font-size: 2em; }
+  to { font-size: 1.2em; }
+}
+
+@keyframes stickToHeader {
+  from { top: -50px; }
+  to { top: -140px; }
 }
 
 @keyframes fadein {
@@ -81,28 +95,18 @@ body {
 
 .card-origin {
   position: relative;
+  font-size: 2em;
 }
 
 .card-origin.active {
-  animation-name: movetoheader;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-out;
-  animation-delay: 0s;
-  animation-direction: normal;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+  animation: shrink 0.2s ease-out 0s normal 1 forwards running,
+             moveToHeaderX 0.2s ease-out 0s normal 1 forwards running,
+             moveToHeaderY 0.2s ease-in 0s normal 1 forwards running,
+             stickToHeader 0.3s ease-out 0.2s normal 1 forwards running;
 }
 
 .card.active {
-  animation-name: scaleup;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-out;
-  animation-delay: 0s;
-  animation-direction: normal;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
+  animation: scaleup 0.3s ease-out 0.2s normal 1 forwards running;
 }
 
 .card-button-front.active {
